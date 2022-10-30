@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+Route::get('/',[FontController::class,'home'])->name('home');
+Route::post('/contact',[FontController::class,'contactUs'])->name('contact');
+
+
+Route::post('/send-notification',[FontController::class,'sendNotification'])->name('email.notification');
 
 Route::middleware([
     'auth:sanctum',
