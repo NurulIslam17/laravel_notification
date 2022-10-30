@@ -8,7 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Hi , I am Nurul Islam, you are welcome to our company</p>
+    <p>Hi , I am {{$val1}}, you are welcome to our company</p>
+    <p>{{$val2}}</p>
     <p>Best Regards,</p>
     <p>Softserver</p>
 

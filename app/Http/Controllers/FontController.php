@@ -32,9 +32,9 @@ class FontController extends Controller
 
     public  function sendNotification()
     {
-        $users =  User::find(1);
+        $users =  User::find(2);
 //        $user->notify(new EmailNotification()); // using notify()
-        Notification::send($users, new EmailNotification());
+        Notification::send($users, new EmailNotification("Abir","web3nurul.com"));
 
 
         return redirect()->back()->with('success','Check the email notification');
