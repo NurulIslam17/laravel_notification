@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Notifications\EmailNotification;
+use Illuminate\Support\Facades\Notification;
 
 class FontController extends Controller
 {
@@ -31,8 +32,11 @@ class FontController extends Controller
 
     public  function sendNotification()
     {
-        $user =  User::find(2);
-        $user->notify(new EmailNotification());
+        $users =  User::find(1);
+//        $user->notify(new EmailNotification()); // using notify()
+        Notification::send($users, new EmailNotification());
+
+
         return redirect()->back()->with('success','Check the email notification');
     }
 }
